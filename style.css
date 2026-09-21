@@ -1,0 +1,867 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #40345f 0%,
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #111225,
+            #211936,
+            #30213f
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.contenedor {
+    width: 100%;
+    max-width: 500px;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    padding: 20px;
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+h1 {
+    color: #ffe84a;
+
+    font-size: clamp(25px, 7vw, 34px);
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 10px rgba(255, 231, 55, 0.6),
+        0 0 25px rgba(255, 194, 0, 0.3);
+
+    opacity: 0;
+
+    animation:
+        aparecer 1.5s ease forwards,
+        brilloTitulo 3s ease-in-out infinite;
+
+    animation-delay: 0.3s, 2s;
+}
+
+
+/* =========================================
+   FLOR
+========================================= */
+
+.flor {
+    width: 300px;
+    height: 390px;
+
+    position: relative;
+}
+
+
+/* =========================================
+   TALLO
+========================================= */
+
+.tallo {
+    position: absolute;
+
+    width: 14px;
+    height: 230px;
+
+    background:
+        linear-gradient(
+            to right,
+            #1f5424,
+            #58a936,
+            #286b28
+        );
+
+    bottom: 70px;
+
+    left: calc(50% - 7px);
+
+    border-radius: 20px;
+
+    transform-origin: bottom;
+
+    transform: scaleY(0);
+
+    animation:
+        crecerTallo 2s ease-out forwards,
+        moverTallo 4s ease-in-out infinite;
+
+    animation-delay: 0.6s, 5s;
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   HOJAS
+========================================= */
+
+.hoja {
+    position: absolute;
+
+    width: 80px;
+    height: 38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #68bd3d,
+            #327d2c
+        );
+
+    border-radius: 100% 0 100% 0;
+
+    opacity: 0;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.25);
+
+    z-index: 2;
+}
+
+
+/* Hoja izquierda */
+
+.hoja1 {
+    left: 65px;
+    bottom: 180px;
+
+    transform: rotate(-30deg);
+
+    animation:
+        aparecerHoja 1s ease forwards,
+        moverHoja1 4s ease-in-out infinite;
+
+    animation-delay: 2s, 5s;
+}
+
+
+/* Hoja derecha */
+
+.hoja2 {
+    right: 55px;
+    bottom: 230px;
+
+    transform: rotate(30deg) scaleX(-1);
+
+    animation:
+        aparecerHoja 1s ease forwards,
+        moverHoja2 4s ease-in-out infinite;
+
+    animation-delay: 2.3s, 5s;
+}
+
+
+/* =========================================
+   PÉTALOS 🌻
+========================================= */
+
+.petalo {
+    position: absolute;
+
+    width: 68px;
+    height: 105px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #fff94a 0%,
+            #ffdf20 50%,
+            #f5a900 100%
+        );
+
+    border-radius: 50%;
+
+    top: 0;
+    left: calc(50% - 34px);
+
+    transform-origin: 50% 100%;
+
+    opacity: 0;
+
+    z-index: 4;
+
+    box-shadow:
+        0 0 10px rgba(255, 221, 40, 0.45);
+
+    animation:
+        aparecerPetalo 0.8s ease forwards;
+}
+
+
+/* =========================================
+   12 PÉTALOS
+========================================= */
+
+.petalo1 {
+    --rot: 0deg;
+    animation-delay: 2.3s;
+}
+
+.petalo2 {
+    --rot: 30deg;
+    animation-delay: 2.4s;
+}
+
+.petalo3 {
+    --rot: 60deg;
+    animation-delay: 2.5s;
+}
+
+.petalo4 {
+    --rot: 90deg;
+    animation-delay: 2.6s;
+}
+
+.petalo5 {
+    --rot: 120deg;
+    animation-delay: 2.7s;
+}
+
+.petalo6 {
+    --rot: 150deg;
+    animation-delay: 2.8s;
+}
+
+.petalo7 {
+    --rot: 180deg;
+    animation-delay: 2.9s;
+}
+
+.petalo8 {
+    --rot: 210deg;
+    animation-delay: 3s;
+}
+
+.petalo9 {
+    --rot: 240deg;
+    animation-delay: 3.1s;
+}
+
+.petalo10 {
+    --rot: 270deg;
+    animation-delay: 3.2s;
+}
+
+.petalo11 {
+    --rot: 300deg;
+    animation-delay: 3.3s;
+}
+
+.petalo12 {
+    --rot: 330deg;
+    animation-delay: 3.4s;
+}
+
+
+/* =========================================
+   CENTRO DE LA FLOR 🌻
+========================================= */
+
+.centro {
+    position: absolute;
+
+    width: 76px;
+    height: 76px;
+
+    top: 72px;
+
+    left: calc(50% - 38px);
+
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            #a96d18,
+            #603507 55%,
+            #281503
+        );
+
+    border-radius: 50%;
+
+    z-index: 10;
+
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 190, 30, 0.35);
+
+    transform: scale(0);
+
+    animation:
+        aparecerCentro 1s ease forwards,
+        latir 2.5s ease-in-out infinite;
+
+    animation-delay: 3.7s, 5s;
+}
+
+
+/* =========================================
+   MACETA 🪴
+========================================= */
+
+.maceta {
+    position: absolute;
+
+    width: 125px;
+    height: 105px;
+
+    left: calc(50% - 62.5px);
+
+    bottom: 0;
+
+    z-index: 8;
+
+    opacity: 0;
+
+    animation: aparecerMaceta 1.2s ease forwards;
+
+    animation-delay: 4s;
+}
+
+
+/* Tierra */
+
+.tierra {
+    position: absolute;
+
+    width: 100px;
+    height: 25px;
+
+    left: 12.5px;
+    top: 0;
+
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            #5c3217 0%,
+            #321b0b 70%
+        );
+
+    border-radius: 50%;
+
+    z-index: 3;
+
+    box-shadow:
+        inset 0 3px 5px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Borde superior */
+
+.bordeMaceta {
+    position: absolute;
+
+    width: 125px;
+    height: 30px;
+
+    left: 0;
+    top: 8px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #d97832,
+            #a94e20
+        );
+
+    border-radius: 8px 8px 15px 15px;
+
+    z-index: 4;
+
+    box-shadow:
+        0 4px 7px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Cuerpo */
+
+.cuerpoMaceta {
+    position: absolute;
+
+    width: 105px;
+    height: 75px;
+
+    left: 10px;
+    top: 28px;
+
+    background:
+        linear-gradient(
+            to right,
+            #8f401b,
+            #c76229,
+            #9f461d
+        );
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        87% 100%,
+        13% 100%
+    );
+
+    border-radius: 0 0 12px 12px;
+
+    z-index: 2;
+
+    box-shadow:
+        inset 8px 0 10px rgba(255, 170, 80, 0.18),
+        inset -8px 0 10px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Detalle de la maceta */
+
+.cuerpoMaceta::after {
+    content: "";
+
+    position: absolute;
+
+    width: 55px;
+    height: 6px;
+
+    left: 25px;
+    top: 22px;
+
+    background: rgba(255, 180, 100, 0.18);
+
+    border-radius: 50%;
+}
+
+
+/* Sombra debajo */
+
+.sombraMaceta {
+    position: absolute;
+
+    width: 150px;
+    height: 18px;
+
+    left: -12.5px;
+    bottom: -8px;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    border-radius: 50%;
+
+    filter: blur(5px);
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   BRILLITOS ✨
+========================================= */
+
+.brillo {
+    position: absolute;
+
+    color: #fff4a3;
+
+    font-size: 24px;
+
+    z-index: 15;
+
+    opacity: 0;
+
+    text-shadow:
+        0 0 8px #fff176,
+        0 0 15px #ffd700;
+
+    animation:
+        aparecerBrillo 1s ease forwards,
+        parpadear 2s ease-in-out infinite;
+}
+
+
+.brillo1 {
+    top: 30px;
+    left: 35px;
+
+    animation-delay: 3.5s, 5s;
+}
+
+.brillo2 {
+    top: 90px;
+    left: 5px;
+
+    font-size: 18px;
+
+    animation-delay: 3.7s, 5.4s;
+}
+
+.brillo3 {
+    top: 160px;
+    left: 30px;
+
+    font-size: 20px;
+
+    animation-delay: 3.9s, 5.8s;
+}
+
+.brillo4 {
+    top: 55px;
+    right: 20px;
+
+    font-size: 18px;
+
+    animation-delay: 4s, 5.2s;
+}
+
+.brillo5 {
+    top: 125px;
+    right: -5px;
+
+    animation-delay: 4.2s, 5.6s;
+}
+
+.brillo6 {
+    top: 195px;
+    right: 30px;
+
+    font-size: 19px;
+
+    animation-delay: 4.4s, 6s;
+}
+
+.brillo7 {
+    top: 180px;
+    left: 10px;
+
+    font-size: 16px;
+
+    animation-delay: 4.6s, 5.5s;
+}
+
+.brillo8 {
+    top: 20px;
+    right: 65px;
+
+    font-size: 16px;
+
+    animation-delay: 4.8s, 5.9s;
+}
+
+
+/* =========================================
+   MENSAJES
+========================================= */
+
+.mensaje {
+    margin-top: 5px;
+
+    color: white;
+
+    font-size: clamp(18px, 5vw, 22px);
+
+    text-align: center;
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.3);
+
+    opacity: 0;
+
+    animation:
+        aparecer 1.5s ease forwards;
+
+    animation-delay: 4.5s;
+}
+
+
+.submensaje {
+    margin-top: 10px;
+
+    color: #ffe76b;
+
+    font-size: clamp(15px, 4vw, 18px);
+
+    text-align: center;
+
+    opacity: 0;
+
+    animation:
+        aparecer 1.5s ease forwards;
+
+    animation-delay: 5s;
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes crecerTallo {
+
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+
+}
+
+
+@keyframes moverTallo {
+
+    0%, 100% {
+        transform: scaleY(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scaleY(1) rotate(1deg);
+    }
+
+}
+
+
+@keyframes aparecerHoja {
+
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes moverHoja1 {
+
+    0%, 100% {
+        transform: rotate(-30deg);
+    }
+
+    50% {
+        transform: rotate(-25deg);
+    }
+
+}
+
+
+@keyframes moverHoja2 {
+
+    0%, 100% {
+        transform: rotate(30deg) scaleX(-1);
+    }
+
+    50% {
+        transform: rotate(25deg) scaleX(-1);
+    }
+
+}
+
+
+@keyframes aparecerPetalo {
+
+    from {
+        opacity: 0;
+
+        transform:
+            rotate(var(--rot))
+            translateY(-20px)
+            scale(0);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            rotate(var(--rot))
+            translateY(-20px)
+            scale(1);
+    }
+
+}
+
+
+@keyframes aparecerCentro {
+
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes latir {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+
+}
+
+
+/* =========================================
+   APARICIÓN DE LA MACETA
+========================================= */
+
+@keyframes aparecerMaceta {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================
+   BRILLITOS
+========================================= */
+
+@keyframes aparecerBrillo {
+
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes parpadear {
+
+    0%, 100% {
+        opacity: 0.4;
+
+        transform:
+            scale(0.8)
+            rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            scale(1.3)
+            rotate(20deg);
+    }
+
+}
+
+
+/* =========================================
+   BRILLO DEL TÍTULO
+========================================= */
+
+@keyframes brilloTitulo {
+
+    0%, 100% {
+        text-shadow:
+            0 0 10px rgba(255, 231, 55, 0.5);
+    }
+
+    50% {
+        text-shadow:
+            0 0 20px rgba(255, 231, 55, 0.9),
+            0 0 35px rgba(255, 194, 0, 0.4);
+    }
+
+}
+
+
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
+
+@media (max-height: 650px) {
+
+    h1 {
+        margin-bottom: 5px;
+    }
+
+    .flor {
+        transform: scale(0.82);
+
+        margin-top: -20px;
+        margin-bottom: -35px;
+    }
+
+    .mensaje {
+        margin-top: 0;
+    }
+
+}
